@@ -1,9 +1,9 @@
-import img from './assets/photo/hidden.webp';
-import image1 from './assets/photo/one.webp';
-import image2 from './assets/photo/two.webp';
-import image3 from './assets/photo/three.webp';
-import image4 from './assets/photo/four.webp';
-import image5 from './assets/photo/five.jpg';
+import img from '../../assets/photo/hidden.webp';
+import image1 from '../../assets/photo/one.webp';
+import image2 from '../../assets/photo/two.webp';
+import image3 from '../../assets/photo/three.webp';
+import image4 from '../../assets/photo/four.webp';
+import image5 from '../../assets/photo/five.jpg';
 
 function Ourallservices() {
     return (

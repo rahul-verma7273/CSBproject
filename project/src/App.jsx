@@ -1,26 +1,38 @@
-import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Footer from './footer'; 
-import BottomFooter from './bottomfooter';
-import Crousel from './crousel';
-import Gallery from './gallery';
-import Ourallservices from './ourallservices';
-import EmergencyService from "./emergencyservice.jsx";
+import Gallery from './component/gallery/gallery.jsx';
+import Ourallservices from './component/Services/ourallservices.jsx';
+import EmergencyService from "./component/Services/emergencyservice.jsx";
+import Healthcheck from './component/Services/healthcheck.jsx';
+import Homecare from './component/Services/homecare.jsx';
+import HomePage from './component/Home/Home.jsx';
+import MainHeader from "./component/Home/MainHeader";
+import Footer from './component/Home/Footer/Footer'
+import BottomFooter from './component/Home/Footer/bottomfooter'
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-   <EmergencyService />
-    <Ourallservices />
-     <Gallery />
-    <Crousel />
-     <div className="w-full">
+    
+     
+    <Router>
+       <> 
+      <MainHeader/>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/homecare" element={<Homecare />} />
+        <Route path="/healthcheck" element={<Healthcheck />} />
+        <Route path="/emergency" element={<EmergencyService />} />
+        <Route path="/services" element={<Ourallservices />} />
+        <Route path="/gallery" element={<Gallery />} />
+      </Routes>
+       <div className="w-full">
       <Footer />
       <BottomFooter />
     </div>
     </>
+    </Router>
+      
+     
   );
 }
 

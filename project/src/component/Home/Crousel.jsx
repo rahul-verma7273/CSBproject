@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import crousel1 from "./assets/photo/crousel.jpg";
-import crousel2 from "./assets/photo/crousel2.jpg";
+import crousel1 from "../../assets/photo/crousel.jpg";
+import crousel2 from "../../assets/photo/crousel2.jpg";
 
 function Crousel() {
   const images = [crousel1, crousel2];
@@ -63,24 +63,22 @@ function Crousel() {
       {/* Carousel height */}
       <div className="relative w-full h-[100vh] sm:h-[90vh]">
         <AnimatePresence custom={direction}>
-          <motion.div
-            key={current}
-            className={`absolute top-0 left-0 w-full h-full flex ${
-              isMobile ? "flex-col-reverse" : "flex-col"
-            }`}
-            variants={bannerVariants}
-            custom={direction}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-            onAnimationComplete={() => setIsAnimating(false)}
-          >
-            {/* Text Content */}
+  <motion.div
+    key={current}
+    className="absolute top-0 left-0 w-full h-full flex flex-col"
+    variants={bannerVariants}
+    custom={direction}
+    initial="enter"
+    animate="center"
+    exit="exit"
+    transition={{ duration: 0.8, ease: "easeInOut" }}
+    onAnimationComplete={() => setIsAnimating(false)}
+  >
+                {/* Text Content */}
             <motion.div
               className={`w-full flex flex-col justify-center px-4 sm:px-10 ${
                 isMobile
-                  ? "h-1/3 text-center items-center" // kam height text container
+                  ? "h-1/3 text-center items-center" 
                   : "absolute top-16 sm:top-28 left-4 sm:left-10 max-w-lg"
               } text-black z-20`}
               variants={textVariants}
@@ -129,6 +127,7 @@ function Crousel() {
               </div>
             </motion.div>
 
+
             {/* Banner Image */}
            <img
   src={images[current]}
@@ -174,10 +173,13 @@ function Crousel() {
                 current === index ? "bg-white" : "bg-black/50"
               }`}
             ></div>
+            
           ))}
         </div>
+        
       )}
     </div>
+    
   );
 }
 

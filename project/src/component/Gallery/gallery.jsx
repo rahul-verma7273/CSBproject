@@ -1,15 +1,15 @@
-import gallery from './assets/photo/hidden.webp';
+import gallery from "../../assets/photo/hidden.webp";
 import { IoReorderFourSharp } from "react-icons/io5";
 import { IoWomanOutline } from "react-icons/io5";
 import { GiMedicines } from "react-icons/gi";
 import { GiRomanToga } from "react-icons/gi";
-import first from './assets/photo/first.webp';
-import second from './assets/photo/2.webp';
-import third from './assets/photo/10051.webp';
-import four from './assets/photo/4.webp';
-import five from './assets/photo/7.webp';
-import six from './assets/photo/9.webp';
-import seven from './assets/photo/10.webp';
+import first from '../../assets/photo/first.webp';
+import second from '../../assets/photo/2.webp';
+import third from '../../assets/photo/10051.webp';
+import four from '../../assets/photo/4.webp';
+import five from '../../assets/photo/7.webp';
+import six from '../../assets/photo/9.webp';
+import seven from '../../assets/photo/10.webp';
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { FaLink } from "react-icons/fa6";
 

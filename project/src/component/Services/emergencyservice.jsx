@@ -1,48 +1,117 @@
 import { motion } from 'framer-motion';
-import emergencyImg1 from './assets/photo/emergency.jpg';
-import emergencyImg2 from './assets/photo/emergency2.webp';
-import emergencyImg3 from './assets/photo/doctor.jpg';
+import emergencyImg1 from '../../assets/photo/emergency.jpg';
+import emergencyImg2 from '../../assets/photo/emergency2.webp';
+import emergencyImg3 from '../../assets/photo/doctor.jpg';
+import MainHeader from "../Home/MainHeader";
+ 
+
+
 
 const EmergencyService = () => {
+  
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.6,
+        ease: "easeOut"
+      } 
+    }
+    
+  };
+
+  const fadeInScale = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      transition: { 
+        duration: 0.5,
+        ease: "backOut"
+      } 
+    }
   };
 
   const staggerContainer = {
     visible: {
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const pulseAnimation = {
+    initial: { scale: 1 },
+    animate: { 
+      scale: [1, 1.02, 1],
+      transition: {
+        duration: 1.5,
+        repeat: Infinity,
+        ease: "easeInOut"
       }
     }
   };
 
   return (
-    <div className="bg-gray-50">
+   
+    
+    <div className="bg-gray-50 overflow-hidden">
       {/* Hero Section */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="relative bg-gradient-to-r from-red-800 to-red-600 py-16 text-white"
+        className="relative bg-gradient-to-r from-[#fd5753] to-[#e84946] py-16 md:py-24 text-white"
       >
         <div className="container mx-auto px-4 text-center">
           <motion.h1 
-            initial={{ y: -20 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-bold mb-4"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ 
+              duration: 0.6,
+              delay: 0.2,
+              ease: "backOut"
+            }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight hover:bg-[#e84946] transition-colors duration-300"
           >
             Accident & Emergency Services in Faridabad at CSB Hospital
           </motion.h1>
+          
           <motion.p
-            initial={{ y: 20 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl md:text-2xl max-w-3xl mx-auto"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ 
+              duration: 0.6, 
+              delay: 0.4,
+              ease: "easeOut"
+            }}
+            className="text-xl md:text-2xl max-w-3xl mx-auto font-light hover:bg-[#e84946] transition-colors duration-300"
           >
-            Immediate, Life-Saving Emergency Care When You Need It Most
+            Immediate, Life-Saving Emergency Care When You Need It Most<br/>
+            Premium healthcare solutions in Jasana, Faridabad (Haryana 121101)
           </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="mt-10 hover:bg-[#e84946] transition-colors duration-300"
+          >
+            <motion.button
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 10px 25px -5px rgba(0,0,0,0.2)"
+              }}
+              whileTap={{ scale: 0.98 }}
+              animate={pulseAnimation}
+              className="bg-white text-[#fd5753] font-bold py-4 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transition-all"
+            >
+              Emergency Helpline: +91-XXXXXXXXXX
+            </motion.button>
+          </motion.div>
         </div>
       </motion.div>
 
@@ -50,30 +119,53 @@ const EmergencyService = () => {
       <motion.section 
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
-        className="container mx-auto px-4 py-12"
+        className="container mx-auto px-4 py-12 md:py-20"
       >
-        <motion.div variants={fadeIn} className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6">
+        <motion.div variants={fadeIn} className="max-w-4xl mx-auto text-center mb-16 hover:bg-red-50 transition-colors duration-300">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 hover:bg-red-50 transition-colors duration-300">
             Advanced Emergency Care at CSB Hospital
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 leading-relaxed hover:bg-red-50 transition-colors duration-300">
             At CSB Hospital, we operate one of Faridabad's most advanced accident and emergency services, providing 24/7 critical care for trauma victims and medical emergencies. Our emergency department in Faridabad is staffed by board-certified emergency physicians and equipped with cutting-edge technology to handle everything from road accidents to cardiac arrests. Recognized as the best emergency care in Faridabad, we maintain a "golden hour" protocol that gives patients the highest chance of survival and recovery.
           </p>
         </motion.div>
 
         {/* Three Images Gallery */}
         <motion.div variants={fadeIn} className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <img src={emergencyImg1} alt="Emergency Team" className="w-full h-64 object-cover hover:scale-105 transition-transform" />
-          </div>
-          <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <img src={emergencyImg2} alt="Emergency Equipment" className="w-full h-64 object-cover hover:scale-105 transition-transform" />
-          </div>
-          <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <img src={emergencyImg3} alt="Emergency Room" className="w-full h-64 object-cover hover:scale-105 transition-transform" />
-          </div>
+          <motion.div 
+            whileHover={{ y: -10 }}
+            className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl hover:bg-red-50 transition-all duration-300"
+          >
+            <img 
+              src={emergencyImg1} 
+              alt="Emergency Team" 
+              className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-500" 
+            />
+          </motion.div>
+          
+          <motion.div 
+            whileHover={{ y: -10 }}
+            className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl hover:bg-red-50 transition-all duration-300"
+          >
+            <img 
+              src={emergencyImg2} 
+              alt="Emergency Equipment" 
+              className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-500" 
+            />
+          </motion.div>
+          
+          <motion.div 
+            whileHover={{ y: -10 }}
+            className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl hover:bg-red-50 transition-all duration-300"
+          >
+            <img 
+              src={emergencyImg3} 
+              alt="Emergency Room" 
+              className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-500" 
+            />
+          </motion.div>
         </motion.div>
       </motion.section>
 
@@ -81,12 +173,12 @@ const EmergencyService = () => {
       <motion.section 
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
-        className="bg-white py-12"
+        className="bg-white py-12 md:py-20"
       >
         <div className="container mx-auto px-4">
-          <motion.h2 variants={fadeIn} className="text-3xl font-bold text-center text-gray-800 mb-12">
+          <motion.h2 variants={fadeIn} className="text-3xl font-bold text-center text-gray-800 mb-12 hover:bg-red-50 transition-colors duration-300">
             Why Choose CSB Hospital's Emergency Services?
           </motion.h2>
           
@@ -95,20 +187,20 @@ const EmergencyService = () => {
             <motion.div 
               variants={fadeIn}
               whileHover={{ y: -5 }}
-              className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-all"
+              className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg hover:bg-red-50 transition-all"
             >
-              <h3 className="text-xl font-semibold text-red-600 mb-4">1. Immediate Response Team</h3>
+              <h3 className="text-xl font-semibold text-[#fd5753] mb-4 hover:bg-red-50 transition-colors duration-300">1. Immediate Response Team</h3>
               <ul className="space-y-3">
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
+                <li className="flex items-start hover:bg-red-50 transition-colors duration-300">
+                  <span className="text-[#fd5753] mr-2">•</span>
                   <span>Dedicated critical care doctors in Faridabad available 24/7</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
+                <li className="flex items-start hover:bg-red-50 transition-colors duration-300">
+                  <span className="text-[#fd5753] mr-2">•</span>
                   <span>Specialized trauma surgeons on standby</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
+                <li className="flex items-start hover:bg-red-50 transition-colors duration-300">
+                  <span className="text-[#fd5753] mr-2">•</span>
                   <span>90-second average response time for code blue cases</span>
                 </li>
               </ul>
@@ -118,25 +210,25 @@ const EmergencyService = () => {
             <motion.div 
               variants={fadeIn}
               whileHover={{ y: -5 }}
-              className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-all"
+              className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg hover:bg-red-50 transition-all"
             >
-              <h3 className="text-xl font-semibold text-red-600 mb-4">2. State-of-the-Art Facilities</h3>
-              <p className="mb-3 font-medium">Our emergency care unit features:</p>
+              <h3 className="text-xl font-semibold text-[#fd5753] mb-4 hover:bg-red-50 transition-colors duration-300">2. State-of-the-Art Facilities</h3>
+              <p className="mb-3 font-medium hover:bg-red-50 transition-colors duration-300">Our emergency care unit features:</p>
               <ul className="space-y-3">
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
+                <li className="flex items-start hover:bg-red-50 transition-colors duration-300">
+                  <span className="text-[#fd5753] mr-2">•</span>
                   <span>Level II trauma center capabilities</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
+                <li className="flex items-start hover:bg-red-50 transition-colors duration-300">
+                  <span className="text-[#fd5753] mr-2">•</span>
                   <span>Dedicated shock rooms with warming systems</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
+                <li className="flex items-start hover:bg-red-50 transition-colors duration-300">
+                  <span className="text-[#fd5753] mr-2">•</span>
                   <span>In-house CT scan & digital X-ray</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
+                <li className="flex items-start hover:bg-red-50 transition-colors duration-300">
+                  <span className="text-[#fd5753] mr-2">•</span>
                   <span>Point-of-care ultrasound (POCUS)</span>
                 </li>
               </ul>
@@ -146,25 +238,25 @@ const EmergencyService = () => {
             <motion.div 
               variants={fadeIn}
               whileHover={{ y: -5 }}
-              className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-all"
+              className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg hover:bg-red-50 transition-all"
             >
-              <h3 className="text-xl font-semibold text-red-600 mb-4">3. Comprehensive Emergency Care</h3>
-              <p className="mb-3 font-medium">We handle all types of emergencies:</p>
+              <h3 className="text-xl font-semibold text-[#fd5753] mb-4 hover:bg-red-50 transition-colors duration-300">3. Comprehensive Emergency Care</h3>
+              <p className="mb-3 font-medium hover:bg-red-50 transition-colors duration-300">We handle all types of emergencies:</p>
               <ul className="space-y-3">
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
+                <li className="flex items-start hover:bg-red-50 transition-colors duration-300">
+                  <span className="text-[#fd5753] mr-2">•</span>
                   <span>Trauma emergencies: Road accidents, falls, industrial injuries</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
+                <li className="flex items-start hover:bg-red-50 transition-colors duration-300">
+                  <span className="text-[#fd5753] mr-2">•</span>
                   <span>Medical emergencies: Heart attacks, strokes, seizures</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
+                <li className="flex items-start hover:bg-red-50 transition-colors duration-300">
+                  <span className="text-[#fd5753] mr-2">•</span>
                   <span>Pediatric emergencies: Febrile seizures, respiratory distress</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
+                <li className="flex items-start hover:bg-red-50 transition-colors duration-300">
+                  <span className="text-[#fd5753] mr-2">•</span>
                   <span>Environmental emergencies: Burns, poisoning, heat stroke</span>
                 </li>
               </ul>
@@ -174,20 +266,20 @@ const EmergencyService = () => {
             <motion.div 
               variants={fadeIn}
               whileHover={{ y: -5 }}
-              className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-all"
+              className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg hover:bg-red-50 transition-all"
             >
-              <h3 className="text-xl font-semibold text-red-600 mb-4">4. Ambulance & Pre-Hospital Care</h3>
+              <h3 className="text-xl font-semibold text-[#fd5753] mb-4 hover:bg-red-50 transition-colors duration-300">4. Ambulance & Pre-Hospital Care</h3>
               <ul className="space-y-3">
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
+                <li className="flex items-start hover:bg-red-50 transition-colors duration-300">
+                  <span className="text-[#fd5753] mr-2">•</span>
                   <span>GPS-enabled advanced life support ambulances</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
+                <li className="flex items-start hover:bg-red-50 transition-colors duration-300">
+                  <span className="text-[#fd5753] mr-2">•</span>
                   <span>Paramedics trained in pre-hospital trauma care</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">•</span>
+                <li className="flex items-start hover:bg-red-50 transition-colors duration-300">
+                  <span className="text-[#fd5753] mr-2">•</span>
                   <span>"Scoop & run" protocol for critical cases</span>
                 </li>
               </ul>
@@ -200,12 +292,12 @@ const EmergencyService = () => {
       <motion.section 
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
         className="py-16 bg-gray-50"
       >
         <div className="container mx-auto px-4">
-          <motion.h2 variants={fadeIn} className="text-3xl font-bold text-center text-gray-800 mb-12">
+          <motion.h2 variants={fadeIn} className="text-3xl font-bold text-center text-gray-800 mb-12 hover:bg-red-50 transition-colors duration-300">
             Our Emergency Services Breakdown
           </motion.h2>
           
@@ -252,14 +344,14 @@ const EmergencyService = () => {
                 key={index}
                 variants={fadeIn}
                 whileHover={{ scale: 1.03 }}
-                className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all border-l-4 border-red-600"
+                className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg hover:bg-red-50 transition-all border-l-4 border-[#fd5753]"
               >
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-3">{service.content}</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3 hover:bg-red-50 transition-colors duration-300">{service.title}</h3>
+                <p className="text-gray-600 mb-3 hover:bg-red-50 transition-colors duration-300">{service.content}</p>
                 <ul className="space-y-2">
                   {service.items.map((item, i) => (
-                    <li key={i} className="flex items-start">
-                      <span className="text-red-500 mr-2">•</span>
+                    <li key={i} className="flex items-start hover:bg-red-50 transition-colors duration-300">
+                      <span className="text-[#fd5753] mr-2">•</span>
                       <span className="text-gray-600">{item}</span>
                     </li>
                   ))}
@@ -274,21 +366,21 @@ const EmergencyService = () => {
       <motion.section 
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
         className="py-16 bg-white"
       >
         <div className="container mx-auto px-4">
-          <motion.h2 variants={fadeIn} className="text-3xl font-bold text-center text-gray-800 mb-12">
+          <motion.h2 variants={fadeIn} className="text-3xl font-bold text-center text-gray-800 mb-12 hover:bg-red-50 transition-colors duration-300">
             Our Emergency Department Infrastructure
           </motion.h2>
           
-          <motion.div variants={fadeIn} className="overflow-x-auto">
+          <motion.div variants={fadeIn} className="overflow-x-auto hover:bg-red-50 transition-colors duration-300">
             <table className="min-w-full bg-white rounded-lg overflow-hidden shadow-md">
-              <thead className="bg-red-600 text-white">
+              <thead className="bg-[#fd5753] text-white">
                 <tr>
-                  <th className="py-4 px-6 text-left">Facility</th>
-                  <th className="py-4 px-6 text-left">Benefit</th>
+                  <th className="py-4 px-6 text-left hover:bg-[#e84946] transition-colors duration-300">Facility</th>
+                  <th className="py-4 px-6 text-left hover:bg-[#e84946] transition-colors duration-300">Benefit</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -303,10 +395,10 @@ const EmergencyService = () => {
                     key={index}
                     variants={fadeIn}
                     whileHover={{ backgroundColor: "#fef2f2" }}
-                    className="hover:bg-red-50 transition-colors"
+                    className="hover:bg-red-50 transition-colors duration-300"
                   >
-                    <td className="py-4 px-6 font-medium">{item.facility}</td>
-                    <td className="py-4 px-6">{item.benefit}</td>
+                    <td className="py-4 px-6 font-medium hover:bg-red-50 transition-colors duration-300">{item.facility}</td>
+                    <td className="py-4 px-6 hover:bg-red-50 transition-colors duration-300">{item.benefit}</td>
                   </motion.tr>
                 ))}
               </tbody>
@@ -319,12 +411,12 @@ const EmergencyService = () => {
       <motion.section 
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
         className="py-16 bg-gray-50"
       >
         <div className="container mx-auto px-4">
-          <motion.h2 variants={fadeIn} className="text-3xl font-bold text-center text-gray-800 mb-12">
+          <motion.h2 variants={fadeIn} className="text-3xl font-bold text-center text-gray-800 mb-12 hover:bg-red-50 transition-colors duration-300">
             Patient Journey in Our Emergency Ward
           </motion.h2>
           
@@ -339,13 +431,13 @@ const EmergencyService = () => {
               <motion.div 
                 key={index}
                 variants={fadeIn}
-                className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center"
+                className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg hover:bg-red-50 transition-all text-center"
               >
-                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+                <div className="w-12 h-12 bg-[#fd5753] rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4 hover:bg-[#e84946] transition-colors duration-300">
                   {index + 1}
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">{item.step}</h3>
-                <p className="text-gray-600">{item.description}</p>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2 hover:bg-red-50 transition-colors duration-300">{item.step}</h3>
+                <p className="text-gray-600 hover:bg-red-50 transition-colors duration-300">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -356,12 +448,12 @@ const EmergencyService = () => {
       <motion.section 
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
         className="py-16 bg-white"
       >
         <div className="container mx-auto px-4">
-          <motion.h2 variants={fadeIn} className="text-3xl font-bold text-center text-gray-800 mb-12">
+          <motion.h2 variants={fadeIn} className="text-3xl font-bold text-center text-gray-800 mb-12 hover:bg-red-50 transition-colors duration-300">
             Our Emergency Specialists
           </motion.h2>
           
@@ -387,18 +479,18 @@ const EmergencyService = () => {
                 key={index}
                 variants={fadeIn}
                 whileHover={{ y: -5 }}
-                className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-all text-center"
+                className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg hover:bg-red-50 transition-all text-center"
               >
-                <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4"></div>
-                <h3 className="text-xl font-semibold text-gray-800">{doctor.name}</h3>
-                <p className="text-red-600 font-medium mb-2">{doctor.specialty}</p>
-                <p className="text-gray-600">{doctor.qualification}</p>
+                <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 hover:bg-red-50 transition-colors duration-300"></div>
+                <h3 className="text-xl font-semibold text-gray-800 hover:bg-red-50 transition-colors duration-300">{doctor.name}</h3>
+                <p className="text-[#fd5753] font-medium mb-2 hover:bg-red-50 transition-colors duration-300">{doctor.specialty}</p>
+                <p className="text-gray-600 hover:bg-red-50 transition-colors duration-300">{doctor.qualification}</p>
               </motion.div>
             ))}
           </div>
           
-          <motion.div variants={fadeIn} className="mt-12 max-w-3xl mx-auto">
-            <h3 className="text-xl font-semibold text-center text-gray-800 mb-4">
+          <motion.div variants={fadeIn} className="mt-12 max-w-3xl mx-auto hover:bg-red-50 transition-colors duration-300">
+            <h3 className="text-xl font-semibold text-center text-gray-800 mb-4 hover:bg-red-50 transition-colors duration-300">
               Supported by:
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -410,8 +502,8 @@ const EmergencyService = () => {
                 "Pharmacists",
                 "Social workers"
               ].map((item, index) => (
-                <div key={index} className="flex items-center">
-                  <span className="text-red-500 mr-2">•</span>
+                <div key={index} className="flex items-center hover:bg-red-50 transition-colors duration-300">
+                  <span className="text-[#fd5753] mr-2">•</span>
                   <span className="text-gray-600">{item}</span>
                 </div>
               ))}
@@ -424,17 +516,17 @@ const EmergencyService = () => {
       <motion.section 
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
         className="py-16 bg-gray-50"
       >
         <div className="container mx-auto px-4 max-w-4xl">
-          <motion.h2 variants={fadeIn} className="text-3xl font-bold text-center text-gray-800 mb-12">
+          <motion.h2 variants={fadeIn} className="text-3xl font-bold text-center text-gray-800 mb-12 hover:bg-red-50 transition-colors duration-300">
             When to Visit Our Emergency Department?
           </motion.h2>
           
-          <motion.div variants={fadeIn} className="bg-white p-8 rounded-xl shadow-md">
-            <p className="text-lg font-medium text-gray-800 mb-6">
+          <motion.div variants={fadeIn} className="bg-white p-8 rounded-xl shadow-md hover:bg-red-50 transition-colors duration-300">
+            <p className="text-lg font-medium text-gray-800 mb-6 hover:bg-red-50 transition-colors duration-300">
               Seek immediate care for:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -448,7 +540,7 @@ const EmergencyService = () => {
                 "Poisoning/overdose",
                 "Loss of consciousness"
               ].map((item, index) => (
-                <div key={index} className="flex items-start">
+                <div key={index} className="flex items-start hover:bg-red-50 transition-colors duration-300">
                   <span className="text-green-500 mr-2 mt-1">✓</span>
                   <span className="text-gray-600">{item}</span>
                 </div>
@@ -462,12 +554,12 @@ const EmergencyService = () => {
       <motion.section 
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
-        className="py-16 bg-red-700 text-white"
+        className="py-16 bg-[#fd5753] text-white"
       >
         <div className="container mx-auto px-4">
-          <motion.h2 variants={fadeIn} className="text-3xl font-bold text-center mb-12">
+          <motion.h2 variants={fadeIn} className="text-3xl font-bold text-center mb-12 hover:bg-[#e84946] transition-colors duration-300">
             Why CSB Hospital is Faridabad's Emergency Care Leader
           </motion.h2>
           
@@ -481,11 +573,11 @@ const EmergencyService = () => {
               <motion.div 
                 key={index}
                 variants={fadeIn}
-                className="text-center"
+                className="text-center hover:bg-[#e84946] transition-colors duration-300 p-4 rounded-lg"
               >
-                <div className="text-4xl font-bold mb-2">{item.value}</div>
-                <h3 className="text-xl font-semibold mb-2">{item.stat}</h3>
-                <p className="text-red-100">{item.description}</p>
+                <div className="text-4xl font-bold mb-2 hover:bg-[#e84946] transition-colors duration-300">{item.value}</div>
+                <h3 className="text-xl font-semibold mb-2 hover:bg-[#e84946] transition-colors duration-300">{item.stat}</h3>
+                <p className="text-white/90 hover:bg-[#e84946] transition-colors duration-300">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -496,12 +588,12 @@ const EmergencyService = () => {
       <motion.section 
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
         className="py-16 bg-white"
       >
         <div className="container mx-auto px-4 max-w-4xl">
-          <motion.h2 variants={fadeIn} className="text-3xl font-bold text-center text-gray-800 mb-12">
+          <motion.h2 variants={fadeIn} className="text-3xl font-bold text-center text-gray-800 mb-12 hover:bg-red-50 transition-colors duration-300">
             Frequently Asked Questions
           </motion.h2>
           
@@ -527,10 +619,10 @@ const EmergencyService = () => {
               <motion.div 
                 key={index}
                 variants={fadeIn}
-                className="border-b border-gray-200 pb-6"
+                className="border-b border-gray-200 pb-6 hover:bg-red-50 transition-colors duration-300 p-4 rounded-lg"
               >
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">{item.question}</h3>
-                <p className="text-gray-600">{item.answer}</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2 hover:bg-red-50 transition-colors duration-300">{item.question}</h3>
+                <p className="text-gray-600 hover:bg-red-50 transition-colors duration-300">{item.answer}</p>
               </motion.div>
             ))}
           </div>
@@ -542,21 +634,23 @@ const EmergencyService = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="py-16 bg-gradient-to-r from-red-800 to-red-600 text-white text-center"
+        className="py-16 bg-gradient-to-r from-[#fd5753] to-[#e84946] text-white text-center"
       >
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6">Need Emergency Care?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">Our emergency team is ready 24/7 to provide immediate, life-saving care.</p>
+        <div className="container mx-auto px-4 hover:bg-[#e84946] transition-colors duration-300">
+          <h2 className="text-3xl font-bold mb-6 hover:bg-[#e84946] transition-colors duration-300">Need Emergency Care?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto hover:bg-[#e84946] transition-colors duration-300">Our emergency team is ready 24/7 to provide immediate, life-saving care.</p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-white text-red-700 font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transition-all"
+            animate={pulseAnimation}
+            className="bg-white text-[#fd5753] font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transition-all"
           >
             Call Emergency: +91-XXXXXXXXXX
           </motion.button>
         </div>
       </motion.section>
     </div>
+    
   );
 };
 
