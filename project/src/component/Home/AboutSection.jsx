@@ -1,6 +1,10 @@
 import React from "react";
 import { FaTruckMedical } from "react-icons/fa6";  // FontAwesome 6
 import { FaFlask, FaPhoneAlt } from "react-icons/fa";  // FontAwesome 5
+import web1 from '../../assets/image/1.webp';
+import web2 from '../../assets/image/2.webp';
+import web3 from '../../assets/image/3.webp';
+import web4 from '../../assets/image/4.webp';
 
 
  {/* About Section */}
@@ -27,12 +31,12 @@ function AboutSection(){
             <div className="w-full lg:w-1/2 md:w-1/2">
               <div className="flex flex-wrap">
                 <div className="w-1/2 px-1">
-                  <img className="w-full mb-4 rounded" src="src/assets/image/1.webp" alt="Service 1" />
-                  <img className="w-full rounded" src="src/assets/image/3.webp" alt="Service 3" />
+                  <img src={web1} className="w-full mb-4 rounded"  alt="Service 1" />
+                  <img src={web2} className="w-full rounded" alt="Service 3" />
                 </div>
                 <div className="w-1/2 px-1">
-                  <img className="w-full mb-4 rounded" src="src/assets/image/2.webp" alt="Service 2" />
-                  <img className="w-full rounded" src="src/assets/image/4.webp" alt="Service 4" />
+                  <img src={web3} className="w-full mb-4 rounded"  alt="Service 2" />
+                  <img src={web4} className="w-full rounded" alt="Service 4" />
                 </div>
               </div>
             </div>
