@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaMapMarkerAlt, FaSearch, FaBars, FaChevronDown } from 'react-icons/fa';
 import { FaPhoneAlt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-
+import logo from "../../assets/image/csb_logo.jpg";
 const MainHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState({
@@ -46,7 +46,7 @@ const MainHeader = () => {
           {/* Logo */}
           <div className="w-full md:w-1/4 flex justify-start mb-2 md:mb-0">
             <img
-              src="src/assets/image/csb_logo.jpg"
+              src={logo}
               alt="CSB Logo"
               className="w-[200px] h-[50px] md:w-[256px] md:h-[60px] object-contain cursor-pointer"
               onClick={() => window.location.href = '/'}
