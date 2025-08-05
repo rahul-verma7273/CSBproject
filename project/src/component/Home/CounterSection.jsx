@@ -12,7 +12,7 @@ function CounterSection() {
             {/* Medical Experience */}
             <div className="w-full md:w-1/2 lg:w-1/4 px-2 mb-8">
               <div className="flex items-center">
-                <div className="w-20 h-20 border border-white rounded-tl-2xl rounded-br-2xl flex items-center justify-center mr-4 transition-colors duration-300 hover:bg-white hover:text-red-700">
+                <div className="w-20 h-20 border border-white rounded-bl-4xl  hover:rounded-tr-4xl hover:rounded-bl flex items-center justify-center mr-4 transition-colors duration-300 hover:bg-white hover:text-red-700">
                   <IoSchool className="text-3xl" />
                 </div>
                 <div>
@@ -25,7 +25,7 @@ function CounterSection() {
             {/* Total Doctors */}
             <div className="w-full md:w-1/2 lg:w-1/4 px-2 mb-8">
               <div className="flex items-center">
-                <div className="w-20 h-20 border border-white rounded-tl-2xl rounded-br-2xl flex items-center justify-center mr-4 transition-colors duration-300 hover:bg-white hover:text-red-700">
+                <div className="w-20 h-20 border border-white rounded-bl-4xl hover:rounded-tr-4xl hover:rounded-bl flex items-center justify-center mr-4 transition-colors duration-300 hover:bg-white hover:text-red-700">
                   <IoPerson className="text-3xl" />
                 </div>
                 <div>
@@ -38,7 +38,7 @@ function CounterSection() {
             {/* Medical Workers */}
             <div className="w-full md:w-1/2 lg:w-1/4 px-2 mb-8">
               <div className="flex items-center">
-                <div className="w-20 h-20 border border-white rounded-tl-2xl rounded-br-2xl flex items-center justify-center mr-4 transition-colors duration-300 hover:bg-white hover:text-red-700">
+                <div className="w-20 h-20 border border-white rounded-bl-4xl hover:rounded-tr-4xl hover:rounded-bl flex items-center justify-center mr-4 transition-colors duration-300 hover:bg-white hover:text-red-700">
                   <GrUserWorker className="text-3xl" />
                 </div>
                 <div>
@@ -51,7 +51,7 @@ function CounterSection() {
             {/* Happy Patients */}
             <div className="w-full md:w-1/2 lg:w-1/4 px-2 mb-8">
               <div className="flex items-center">
-                <div className="w-20 h-20 border border-white rounded-tl-2xl rounded-br-2xl flex items-center justify-center mr-4 transition-colors duration-300 hover:bg-white hover:text-red-700">
+                <div className="w-20 h-20 border border-white rounded-bl-4xl hover:rounded-tr-4xl hover:rounded-bl flex items-center justify-center mr-4 transition-colors duration-300 hover:bg-white hover:text-red-700">
                   <IoPerson className="text-3xl" />
                 </div>
                 <div>

@@ -3,9 +3,6 @@ import emergencyImg1 from '../../assets/photo/emergency.jpg';
 import emergencyImg2 from '../../assets/photo/emergency2.webp';
 import emergencyImg3 from '../../assets/photo/doctor.jpg';
 import MainHeader from "../Home/MainHeader";
- 
-
-
 
 const EmergencyService = () => {
   
@@ -56,7 +53,7 @@ const EmergencyService = () => {
   };
 
   return (
-   
+  
     
     <div className="bg-gray-50 overflow-hidden">
       {/* Hero Section */}
@@ -66,6 +63,7 @@ const EmergencyService = () => {
         transition={{ duration: 0.8 }}
         className="relative bg-gradient-to-r from-[#fd5753] to-[#e84946] py-16 md:py-24 text-white"
       >
+        
         <div className="container mx-auto px-4 text-center">
           <motion.h1 
             initial={{ y: -20, opacity: 0 }}

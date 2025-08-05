@@ -14,7 +14,7 @@ function AboutSection(){
             <div className="w-full lg:w-1/2 md:w-1/2 pr-0 md:pr-8 mb-8 md:mb-0">
               <h6 className="text-gray-600">Since 2020, Jasana, Faridabad</h6>
               <h1 className="text-3xl font-bold mt-2 mb-4">Welcome to <span className="text-red-500">CSB Hospital</span></h1>
-              <p className="text-gray-500">
+               <p className="text-gray-500 font-serif"> 
                 Because Life is Precious – is a premier healthcare institution
                 committed to setting the highest standards in patient care. With a
                 focus on excellence, CSB Hospital integrates advanced medical
@@ -52,7 +52,7 @@ function AboutSection(){
         <h5 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">
           Emergency Treatment
         </h5>
-        <p className="text-sm md:text-base text-gray-600 mb-2 md:mb-3 leading-relaxed">
+        <p className="text-sm md:text-base text-gray-600 mb-2 md:mb-3 leading-relaxed font-serif">
           Our hospital provides immediate emergency treatment for a wide
           range of medical conditions, ensuring prompt and expert care.
           With a dedicated team and state-of-the-art facilities, we
@@ -82,7 +82,7 @@ function AboutSection(){
         <h5 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">
           High Quality Laboratory
         </h5>
-        <p className="text-sm md:text-base text-gray-600 mb-2 md:mb-3 leading-relaxed">
+        <p className="text-sm md:text-base text-gray-600 mb-2 md:mb-3 leading-relaxed font-serif">
           Our hospital features a high-quality laboratory equipped with
           advanced diagnostic tools for accurate and timely test results.
           With a team of skilled professionals, we ensure reliable

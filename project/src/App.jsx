@@ -9,7 +9,7 @@ import HomePage from './component/Home/Home.jsx';
 import MainHeader from "./component/Home/MainHeader";
 import Footer from './component/Home/Footer/Footer'
 import BottomFooter from './component/Home/Footer/bottomfooter'
-
+import Diabetes from './component/Services/Diabetes.jsx';
 function App() {
   return (
     
@@ -23,7 +23,9 @@ function App() {
         <Route path="/healthcheck" element={<Healthcheck />} />
         <Route path="/emergency" element={<EmergencyService />} />
         <Route path="/services" element={<Ourallservices />} />
+        <Route path="/diabetes" element={<Diabetes />} />
         <Route path="/gallery" element={<Gallery />} />
+
       </Routes>
        <div className="w-full">
       <Footer />

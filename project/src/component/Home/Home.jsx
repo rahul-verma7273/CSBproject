@@ -1,12 +1,13 @@
 import React from "react";
-import MainHeader from "./MainHeader";
-    
+import MainHeader from "./MainHeader";   
 import AboutSection from "./AboutSection";
 import Crousel from "./crousel";
 import CounterSection from "./CounterSection";
 import MissionSection from "./MissionSection";
- 
 import Getfitcsb from "./Getfitcsb";
+import Ourallservices from '../../component/Services/ourallservices.jsx'
+import Gallery from "../gallery/gallery.jsx";
+import Todaynews from "./Todaynews.jsx";
 function HomePage() {
   return (
     <>
@@ -14,9 +15,11 @@ function HomePage() {
       <Crousel />
       <AboutSection />
       <CounterSection/>
-      <MissionSection/>
        <Getfitcsb/>
-     
+     <Ourallservices />
+     <Gallery />
+      <MissionSection/>
+      <Todaynews />
     </>
   );
 }

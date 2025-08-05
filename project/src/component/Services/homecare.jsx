@@ -4,6 +4,8 @@ import home1 from '../../assets/photo/home.webp';
 import home2 from '../../assets/photo/home2.webp';
 import MainHeader from "../Home/MainHeader";
 import Footer from "../Home/Footer/Footer";
+import accident from '../../assets/photo/pngtree-doctor-with-blank-banner-medical-hospital-advertisement-photo-image_9001654.jpg';
+
 
 function Homecare() {
   
@@ -65,13 +67,19 @@ function Homecare() {
   const [showMore, setShowMore] = useState(false);
 
   return (
-    <div className="bg-gray-50">
-      {/* Hero Section */}
+   <div className="bg-gray-50">
+      {/* Image Section with black opacity overlay */}
+      <div className="relative h-[300px] md:h-[500px] lg:h-[600px] overflow-hidden">
+        <img src={accident} alt="accident" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-black/40"></div> {/* black overlay */}
+      </div>
+
+      {/* Hero Section Over Image */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="relative bg-gradient-to-r from-[#fd5753] to-[#e84946] py-16 md:py-20 text-white"
+        className="relative py-10 md:py-20 text-white -mt-[250px] md:-mt-[400px]"
       >
         <div className="container mx-auto px-4 text-center">
           <motion.div
@@ -80,21 +88,28 @@ function Homecare() {
             transition={{ duration: 0.6 }}
             className="mb-6"
           >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
               Comprehensive Home Care Services in Faridabad at CSB Hospital
             </h1>
           </motion.div>
+
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
+            <h4 className="text-base md:text-xl lg:text-2xl max-w-3xl mx-auto mb-8">
               Bringing Hospital-Quality Care to Your Doorstep
             </h4>
           </motion.div>
         </div>
-      </motion.div>
+    </motion.div>
+
+
+
+
+
+
 
       {/* Introduction Section */}
       <motion.section 

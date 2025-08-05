@@ -134,10 +134,10 @@ function Crousel() {
   alt={`Slide ${current}`}
   className={`${
     isMobile
-      ? "h-2/3 w-full object-cover" // Mobile view
-      : "h-full w-full object-cover" // Desktop view
+      ? "h-1/2 w-full container" // Mobile view
+      : "h-full w-full container" // Desktop view
   }`}
-  style={isMobile ? { objectPosition: "80% center" } : {}}
+  style={isMobile ? { objectPosition: "center" } : {}}
 />
 
           </motion.div>
