@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Gallery from './component/Gallery/Gallery.jsx';
+import Gallery from './component/Home/Gallery.jsx';
 import Ourallservices from './component/Services/ourallservices.jsx';
 import EmergencyService from "./component/Services/emergencyservice.jsx";
 import Healthcheck from './component/Services/healthcheck.jsx';
