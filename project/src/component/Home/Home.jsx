@@ -6,7 +6,7 @@ import CounterSection from "./CounterSection";
 import MissionSection from "./MissionSection";
 import Getfitcsb from "./Getfitcsb";
 import Ourallservices from '../../component/Services/ourallservices.jsx'
-import Gallery from "../gallery/gallery.jsx";
+import Gallery from "../Gallery/Gallery.jsx";
 import Todaynews from "./Todaynews.jsx";
 function HomePage() {
   return (
